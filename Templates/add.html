@@ -1,0 +1,41 @@
+{% extends 'parent.html' %}
+{% block title %}
+       add student page
+{% endblock %}
+{% block content %}
+<div class="container">
+<u><h2 align="center"><i class="bi bi-cloud-plus"></i> ADD NEW STUDENT DETAILS</h2></u>
+<form method="post" >
+  {% csrf_token %}
+    <div class="mb-3">
+  <label for="tbname" class="form-label"><i class="bi bi-dot"></i>Name:-</label>
+  <input type="text" class="form-control" name="tbname" id="tbname"><br>
+</div>
+
+    <div class="mb-4">
+        <label for="tbcourse" class="form-label"><i class="bi bi-dot"></i>Course:-</label>
+    <select name="tbcourse" id="tbcourse" class="form-select" aria-label="Default select example">
+     {% for c in courses %}
+      <option>{{ c.cname }}</option>
+      {% endfor %}
+    </select></div>
+
+     <div class="mb-3">
+  <label for="tbphno" class="form-label"><i class="bi bi-dot"></i>Phone No:-</label>
+  <input type="number" class="form-control" name="tbphno" id="tbphno"><br>
+</div>
+
+     <div class="mb-3">
+  <label for="tbemail" class="form-label"><i class="bi bi-dot"></i>Email:-</label>
+   <input type="email" class="form-control" name="tbemail" id="tbemail"><br>
+</div>
+
+     <div class="mb-3">
+  <label for="tbage" class="form-label"><i class="bi bi-dot"></i>Age:-</label>
+   <input type="number" class="form-control" name="tbage" id="tbage"><br>
+</div>
+
+    <input type="submit" value="Save" class="btn btn-success btn-lg form-control" name="tbsubmit">
+</form>
+    </div>
+{% endblock %}
